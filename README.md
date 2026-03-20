@@ -4,6 +4,20 @@ An OpenClaw skill that exports user-owned data (workspace memory, persona, skill
 
 Usage and agent instructions live in `SKILL.md`. Chinese readme: [README_CN.md](README_CN.md).
 
+## Copy and send to OpenClaw
+
+**ClawHub (recommended, international)**
+
+```text
+Please run clawhub install openclaw-user-data-pack to install this skill, and help me export or apply my OpenClaw user data (zip with manifest, optional managed skills / sessions / config).
+```
+
+**npm**
+
+```text
+Please run npm i openclaw-user-data-pack to install this skill, and help me export or apply my OpenClaw user data (zip with manifest, optional managed skills / sessions / config).
+```
+
 ## Bai Xia Da Zhan
 
 A tongue-in-cheek roster of “lobster-adjacent” names in the wild (for fun; no affiliation with this project):

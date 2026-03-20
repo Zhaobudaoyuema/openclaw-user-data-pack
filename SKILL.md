@@ -1,6 +1,6 @@
 ---
 name: openclaw-user-data-pack
-version: 1.1.0
+version: 1.0.1
 description: "Pack OpenClaw user data into a zip with manifest; apply that zip to a new OpenClaw home/workspace. Optional layers gated (managed skills, sessions, config)."
 trigger: "OpenClaw backup, export user data, pack workspace, migration zip, 打包 openclaw, 迁移记忆, openclaw 一键导出, 一键应用, 导入 zip, restore openclaw from zip, 新机器恢复 openclaw"
 ---

@@ -4,6 +4,20 @@
 
 具体用法与代理说明见 `SKILL.md`。英文说明：[README.md](README.md)。
 
+## 复制发给 OpenClaw
+
+**ClawHub（推荐，国际）**
+
+```text
+请执行 clawhub install openclaw-user-data-pack 安装本 skill，并帮我打包或恢复 OpenClaw 用户数据（带清单的 zip，可选托管技能/会话/配置）。
+```
+
+**npm**
+
+```text
+请执行 npm i openclaw-user-data-pack 安装本 skill，并帮我打包或恢复 OpenClaw 用户数据（带清单的 zip，可选托管技能/会话/配置）。
+```
+
 ## 百虾大战
 
 江湖传闻中的「龙虾系」友商名录（娱乐向排序，与本品无隶属关系）：

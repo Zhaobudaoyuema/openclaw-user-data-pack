@@ -4,3 +4,9 @@ __pycache__/
 *.zip
 .DS_Store
 tests/
+
+# Optional local publish hook (same idea as prompt_token_counter)
+skill.sh
+skill.ps1
+skill.cmd
+skill.bat
