@@ -7,7 +7,7 @@ Before publish:
 2. Bumps patch version (x.y.z -> x.y.(z+1))
 3. Syncs version to package.json, SKILL.md frontmatter, scripts/__init__.py
 4. Runs npm publish
-5. If `clawhub` is on PATH and SKIP_CLAWHUB is not set: clawhub publish
+5. If `clawhub` is on PATH and SKIP_CLAWHUB is not set: clawhub publish (errors are logged only; npm is already done)
 6. Optional hook: skill.ps1 / skill.cmd / skill.bat (Windows) or skill.sh (Unix)
 
 Usage:
@@ -142,7 +142,11 @@ def clawhub_publish(version: str, changelog: str) -> int:
         "--tags",
         "latest",
     ]
-    return subprocess.run(cmd, cwd=ROOT, shell=(os.name == "nt")).returncode
+    try:
+        return subprocess.run(cmd, cwd=ROOT, shell=(os.name == "nt")).returncode
+    except (OSError, subprocess.SubprocessError) as e:
+        print(f"clawhub publish could not run: {e}", file=sys.stderr)
+        return 1
 
 
 def main() -> None:
@@ -206,11 +210,20 @@ def main() -> None:
     if os.environ.get("SKIP_CLAWHUB") == "1":
         print("[SKIP_CLAWHUB=1] skip clawhub")
     else:
-        rc = clawhub_publish(new_version, msg)
-        if rc != 0:
-            print("clawhub publish failed", file=sys.stderr)
-            sys.exit(rc)
-        print(f"Published to ClawHub: {new_version}")
+        try:
+            rc = clawhub_publish(new_version, msg)
+            if rc != 0:
+                print(
+                    "clawhub publish failed (npm publish already completed; fix ClawHub and re-run clawhub or SKIP_CLAWHUB=1).",
+                    file=sys.stderr,
+                )
+            else:
+                print(f"Published to ClawHub: {new_version}")
+        except Exception as e:
+            print(
+                f"clawhub publish error: {e} (npm publish already completed).",
+                file=sys.stderr,
+            )
 
     run_optional_hook(new_version, msg)
     print(f"Done: {new_version}")

@@ -2,6 +2,8 @@
 
 An OpenClaw skill that exports user-owned data (workspace memory, persona, skills, and more) into a single zip with a manifest, and can apply that zip onto a new OpenClaw home or workspace. Optional layers such as managed skills, session transcripts, and config snapshots are opt-in on both export and import so secrets and large logs are not moved by accident.
 
+**Behavior:** pack/apply are **overwrite-by-path** filesystem operations; they do **not** merge conflicting memory or skills. Use `--dry-run`, inspect `EXPORT_MANIFEST.txt` inside the zip, back up the destination before apply, and only enable session/config flags if you understand transcripts and secrets—see `SKILL.md` for the full operator checklist.
+
 Usage and agent instructions live in `SKILL.md`. Chinese readme: [README_CN.md](README_CN.md).
 
 ## Copy and send to OpenClaw

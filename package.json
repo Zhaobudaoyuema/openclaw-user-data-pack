@@ -1,6 +1,6 @@
 {
   "name": "openclaw-user-data-pack",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "OpenClaw skill: Pack user data to zip with manifest; apply zip to a new OpenClaw home/workspace (gated optional layers).",
   "keywords": [
     "openclaw",
